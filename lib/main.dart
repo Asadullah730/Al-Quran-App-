@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:quranapp/home.dart';
+import 'package:quranapp/Presentation/home.dart';
+import 'package:quranapp/Presentation/splashScreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,8 +15,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
       ),
+      // home: SplashScreen(),
       home: HomeScreen(),
     );
   }

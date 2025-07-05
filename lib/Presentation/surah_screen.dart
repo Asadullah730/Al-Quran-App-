@@ -2,34 +2,31 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:quranapp/versesModel.dart';
+import 'package:quranapp/Controller/surah_controller.dart';
+import 'package:quranapp/Model/versesModel.dart';
 
 class SurahScreen extends StatelessWidget {
-  const SurahScreen({super.key});
-
-  Future<List<Verse>> loadSurah() async {
-    final String response = await rootBundle.loadString(
-      'assets/surahs/surah_10.json',
-    );
-    final data = json.decode(response);
-    if (data['verse'] == null) {
-      throw Exception("No verses found in the JSON file");
-    }
-    final Map<String, dynamic> verses = data['verse'];
-    List<Verse> verseList =
-        verses.entries.map((entry) {
-          return Verse(number: entry.key, text: entry.value);
-        }).toList();
-
-    return verseList;
-  }
+  final String surahPath;
+  final String surahName;
+  const SurahScreen({
+    super.key,
+    required this.surahPath,
+    required this.surahName,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Surah Yunus")),
+      appBar: AppBar(
+        title: Text(
+          'Surah - $surahName',
+          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        ),
+        centerTitle: true,
+        backgroundColor: Colors.green.shade700,
+      ),
       body: FutureBuilder(
-        future: loadSurah(),
+        future: SurahController.loadSurah(surahPath),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator());
