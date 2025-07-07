@@ -13,7 +13,8 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Quran App')),
+      backgroundColor: Colors.white, // Changed to white for better contrast
+      appBar: AppBar(title: const Text('Al-Quran App')),
       body: FutureBuilder(
         future: SurahController.loadName(),
         builder: (context, snapshot) {
@@ -36,11 +37,11 @@ class HomeScreen extends StatelessWidget {
                 final surah = surahs[index]; // ✅ Correct indexing
                 return ListTile(
                   title: Text(
-                    'Total Ayat: ${surah['name'] ?? 'Unknown'}',
+                    'Surah :${surah['name'] ?? 'Unknown'}',
                     style: const TextStyle(fontSize: 14),
                   ),
                   subtitle: Text(
-                    'Surah: ${surah['ayat'] ?? 'Unknown'}',
+                    'Total Ayat: ${surah['ayat'] ?? 'Unknown'}',
                     style: const TextStyle(fontSize: 16),
                   ),
                   leading: CircleAvatar(
