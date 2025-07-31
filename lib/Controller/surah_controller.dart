@@ -15,7 +15,12 @@ class SurahController {
     final Map<String, dynamic> verses = data['verse'];
     List<Verse> verseList =
         verses.entries.map((entry) {
-          return Verse(number: entry.key, text: entry.value);
+          return Verse(
+            number: entry.key,
+            text: entry.value,
+            translation: '',
+            audioUrl: '',
+          );
         }).toList();
 
     return verseList;
@@ -45,17 +50,21 @@ class SurahController {
 
       List<Verse> verseList =
           verses.entries.map((entry) {
-            return Verse(number: entry.key, text: entry.value);
+            return Verse(
+              number: entry.key,
+              text: entry.value,
+              translation: '',
+              audioUrl: '',
+            );
           }).toList();
 
       final totalayat = data['count'];
 
-      // 👇 Create a new map for each surah
       Map<String, dynamic> eachsurah = {
         'name': name,
         'verses': verseList,
         'ayat': totalayat,
-        'path': "assets/surahs/surah_$i.json", // Store the path for each surah
+        'path': "assets/surahs/surah_$i.json",
       };
 
       allSurahs.add(eachsurah);

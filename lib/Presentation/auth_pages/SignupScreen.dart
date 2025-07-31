@@ -15,9 +15,6 @@ class SignUpScreen extends StatelessWidget {
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _confirmPasswordController =
       TextEditingController();
-
-  var obsuretxt = true;
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
