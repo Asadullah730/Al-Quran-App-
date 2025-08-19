@@ -1,9 +1,6 @@
 import 'dart:async';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
-
-import 'package:quranapp/Presentation/auth_pages/SignIn.dart';
 import 'package:quranapp/Presentation/home.dart';
 
 class SplashScreen extends StatefulWidget {

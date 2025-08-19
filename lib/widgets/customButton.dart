@@ -19,18 +19,13 @@ Container CustomButton({
       color: Colors.transparent,
       child: InkWell(
         borderRadius: BorderRadius.circular(10),
-        onTap:
-            onPressed != null && !isLoading
-                ? onPressed
-                : null, // Disable button if isLoading is true
-
+        onTap: !isLoading ? onPressed : null,
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 12),
           child: Center(
             child:
                 isLoading
                     ? const CircularProgressIndicator(
-                      // Show loading indicator if isLoading is true
                       valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
                     )
                     : Text(
